@@ -10,10 +10,10 @@ export class TodoDto {
   title: string;
   createdAt: Date;
   modifiedAt: Date;
+  @ApiProperty({ enum: ['IN_PROGRESS', 'HOLD', 'COMPLETED'] })
   @IsEnum(['IN_PROGRESS', 'HOLD', 'COMPLETED'], {
     message: 'Use Valid Status',
   })
-  @ApiProperty({ enum: ['COMPLETED', 'IN_PROGRESS', 'HOLD'], isArray: true })
   status: StatusEnum;
 
   static fromEntity(todo: Todo): TodoDto {

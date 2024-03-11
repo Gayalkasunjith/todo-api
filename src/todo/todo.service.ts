@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { TodoDto } from './dto/todo.dto';
 import { Repository } from 'typeorm';
 import { Todo } from './entities/todo.entity';
@@ -24,9 +24,13 @@ export class TodoService {
   async findOne(id: number): Promise<TodoDto> {
     const todo = new Todo();
     todo.id = id;
-    return await this.todoRepository
-      .findOneBy(todo)
-      .then((value) => TodoDto.fromEntity(value));
+    try {
+      return await this.todoRepository
+        .findOneBy(todo)
+        .then((value) => TodoDto.fromEntity(value));
+    } catch (error) {
+      throw new NotFoundException('Item Not Found');
+    }
   }
 
   update(id: number, updateTodoDto: TodoDto) {
