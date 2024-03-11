@@ -12,7 +12,6 @@ export class Todo {
   @PrimaryGeneratedColumn('increment')
   id: number;
   @Column()
-  @ApiProperty()
   title: string;
   @CreateDateColumn({ name: 'createdAt' })
   createdAt: Date;
