@@ -9,7 +9,7 @@ export class ErrorDto {
   statusCode: number;
 
   init(message: string, error: string, statusCode: number) {
-    this.message, message;
+    this.message = message;
     this.error = error;
     this.statusCode = statusCode;
   }
