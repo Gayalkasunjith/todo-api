@@ -1,5 +1,5 @@
 import { Todo } from '../entities/todo.entity';
-import { StatusEnum } from '../../config/status.enum';
+import { StatusEnum } from '../../util/status.enum';
 import { IsEnum, IsNotEmpty } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 

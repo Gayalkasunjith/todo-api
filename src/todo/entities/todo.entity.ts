@@ -6,7 +6,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { TodoDto } from '../dto/todo.dto';
-import { StatusEnum } from '../../config/status.enum';
+import { StatusEnum } from '../../util/status.enum';
 
 @Entity({ name: 'todo' })
 export class Todo {
